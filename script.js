@@ -6433,3 +6433,60 @@ $("#multiplefileupload").fileinput({
       "</div>",
   },
 });
+
+$("#multiplefileupload2").fileinput({
+  theme: "explorer-fas",
+  uploadUrl: "#",
+  deleteUrl: "#",
+  initialPreviewAsData: true,
+  overwriteInitial: false,
+  dropZoneTitle:
+    '<div class="upload-area"><i class="far fa-images"></i><p>Browse or Drag and Drop .jpg, .png, .gif</p> <div> <button>Browse File</button> </div></div>',
+  dropZoneClickTitle: "",
+  browseOnZoneClick: true,
+  showRemove: false,
+  showUpload: false,
+  showZoom: false,
+  showCaption: false,
+  showBrowse: false,
+  browseClass: "btn btn-danger",
+  browseLabel: "",
+  browseIcon: "<i class='fa fa-plus'></i>",
+  fileActionSettings: {
+    showUpload: false,
+    showDownload: false,
+    showZoom: false,
+    showDrag: true,
+    removeIcon: "<i class='fa fa-times'></i>",
+    uploadIcon: "<i class='fa fa-upload'></i>",
+    dragIcon: "<i class='fa fa-arrows-alt'></i>",
+    uploadRetryIcon: "<i class='fa fa-undo-alt'></i>",
+    dragClass: "file-drag",
+    removeClass: "file-remove",
+    removeErrorClass: "file-remove",
+    uploadClass: "file-upload",
+  },
+  frameClass: "file-sortable",
+  layoutTemplates: {
+    preview:
+      '<div class="file-preview {class}">\n' +
+      '    <div class="{dropClass}">\n' +
+      '    <div class="clearfix"></div>' +
+      '    <div class="file-preview-status text-center text-success"></div>\n' +
+      '    <div class="kv-fileinput-error"></div>\n' +
+      "    </div>\n" +
+      "</div>" +
+      ' <div class="file-preview-thumbnails">\n' +
+      " </div>\n",
+    actionDrag:
+      '<button class="file-drag-handle {dragClass}" title="{dragTitle}">{dragIcon}</button>',
+    footer:
+      '<div class="file-thumbnail-footer">\n' +
+      '<div class="file-detail">' +
+      '<div class="file-caption-name">{caption}</div>\n' +
+      '    <div class="file-size">{size}</div>\n' +
+      "</div>" +
+      "   {actions}\n" +
+      "</div>",
+  },
+});
