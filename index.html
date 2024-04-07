@@ -25,18 +25,18 @@
   </head>
   <body>
     <!-- partial:index.partial.html -->
-
     <div class="container text-center mb-4 mt-3">
       <ul class="nav nav-pills nav-justified">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html"
+          <a
+            class="nav-link"
+            aria-current="page"
+            href="../predictive/index.html"
             >Predictive Model</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../generative/index.html"
-            >Generative Model</a
-          >
+          <a class="nav-link active" href="index.html">Generative Model</a>
         </li>
       </ul>
     </div>
@@ -59,14 +59,14 @@
                   class="form-control"
                   style="font-size: 20px"
                 >
-                  <option value="VGGNET19">VGGNET19</option>
-                  <option value="Efficient Unfreeze">Efficient Unfreeze</option>
-                  <option value="Convolution Neural Network">
-                    Convolution Neural Network
-                  </option></select
+                  <!-- <option value="VGGNET19">VGGNET19</option>
+                  <option value="Unfreeze">Efficient Unfreeze</option> -->
+                  <!-- <option value="CNN">Convolution Neural Network</option> -->
+                  <option value="GAN">Generative Aversarial Network</option>
+                  <option value="VAE">Variational Autoencoder</option></select
                 ><br />
                 <button type="submit" class="submit_button">
-                  Detect Emotions
+                  Generate Images
                 </button>
               </form>
             </div>
@@ -76,17 +76,26 @@
                 <div class="preview-card" style="display: none" id="response">
                   <div class="preview-card__wrp">
                     <div class="preview-card__item">
-                      <div class="preview-card__img">
+                      <div class="preview-card__img_left">
                         <img id="new_image" src="" alt="" />
                       </div>
                       <div class="preview-card__content">
                         <div class="preview-card__title" id="model_name"></div>
-                        <div class="preview-card__text" id="emotion"></div>
+                        <div class="preview-card__text" id="emotion">
+                          <img
+                            src="../assets/arrow.png"
+                            height="70px"
+                            width="'70px"
+                          />
+                        </div>
                         <a
-                          href="file:/C:/Users/DELL/OneDrive/Desktop/DL/New%20folder/predictive/index.html"
+                          href="file:/C:/Users/DELL/OneDrive/Desktop/DL/New%20folder/generative/index.html"
                           class="preview-card__button"
                           >RETRY</a
                         >
+                      </div>
+                      <div class="preview-card__img_right">
+                        <img id="gen_image" src="" alt="" />
                       </div>
                     </div>
                   </div>
@@ -97,7 +106,6 @@
         </div>
       </div>
     </section>
-
     <!-- partial -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -127,11 +135,14 @@
             .then((data) => {
               document.getElementById("response").style.display = "flex";
               document.getElementById("model_name").innerHTML = data.model_name;
-              document.getElementById("emotion").innerHTML =
-                "<h5> Emotion Detected :- " + data.emotion + "</h5>";
+              // document.getElementById("emotion").innerHTML =
+              //   <img src="arr.png">;
               var outputImage = document.getElementById("new_image");
               document.getElementById("new_image").src =
                 "data:image/jpeg;base64," + data.image;
+              var outputImage2 = document.getElementById("gen_image");
+              document.getElementById("gen_image").src =
+                "data:image/jpeg;base64," + data.gen_image;
             })
             .catch((error) => {
               console.error("Error:", error);
