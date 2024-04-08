@@ -12,3 +12,9 @@ Predictive Models:
   1. Transfer learnt VGGNET19 with additional layers.
   2. Transfer learnt EfficientNet with unfreezing some layers.
   3. Convolution Neural Network.
+![image](https://github.com/HarshAmin01/Face-Expression/assets/101825662/5f42c625-bb1a-4405-be09-00f3dc7dae51)
+
+- In the file upload section user can upload an image of a human face and then user has to select a particular model on which they want a prediction.
+- After selecting a model when user clicks on Detect image button the selected model provides an output.
+
+ ![Screenshot (15)](https://github.com/HarshAmin01/Face-Expression/assets/101825662/b1e5e936-6a11-4f4b-9a41-1b5d70af2410)
